@@ -1,0 +1,66 @@
+---
+import countries from "../../../data/countries";
+export async function getStaticPaths() {
+  let result = countries.map((i) => {
+    return {
+      params: {
+        country: i.name,
+      },
+    };
+  });
+  return result;
+}
+
+// 可以从 Astro 全局对象中解构参数
+const { country } = Astro.params;
+---
+{ country }  111
+
+
+<style>
+  .es-home-btn-more {
+    width: 150px;
+    height: 40px;
+    line-height: 20px;
+    border-radius: 4px !important;
+    background-color: #fff;
+    color: #1773ff;
+    font-size: 14px;
+    font-family: PingFang SC;
+    border: 1px solid rgba(255, 255, 255, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .es-home-btn-more-primary {
+    width: 150px;
+    height: 40px;
+    line-height: 20px;
+    border-radius: 4px !important;
+    background-color: #2b7efd;
+    color: #ffffff;
+    font-size: 14px;
+    font-family: PingFang SC;
+    border: 1px solid rgba(255, 255, 255, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .tenx {
+    -webkit-text-fill-color: transparent;
+    background: linear-gradient(90deg, #fb7701, #fff 99.9%);
+    -webkit-background-clip: text;
+  }
+  .title-tip {
+    font-size: 13px;
+    color: #fff;
+  }
+  .title-tip-free {
+    display: inline-block;
+    color: #fb7701;
+    border: 1px solid #fb7701;
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-left: 10px;
+  }
+</style>
